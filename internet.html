@@ -14,105 +14,101 @@
   <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
 
   <style>
-    /* ===============================
-       Base
-    =============================== */
-    .shower {
-      --slide-ratio: calc(16 / 9);
-    }
+/* ===============================
+   IP Slide — Senior Style
+=============================== */
 
-    .slide {
-      background-color: #f6f0e6;
-    }
+.slide {
+  background: linear-gradient(135deg, #1f2933, #111827);
+  color: #e5e7eb;
+}
 
-    /* ===============================
-       Cover
-    =============================== */
-    #cover h2 {
-      margin-top: 30px;
-      color: #333;
-      text-align: center;
-      font-size: 70px;
-      line-height: 1.1;
-    }
+/* Заголовок */
+.slide h2 {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+  color: #ffffff;
+}
 
-    #cover p {
-      margin-top: 10px;
-      text-align: center;
-      color: #333;
-      font-style: italic;
-      font-size: 20px;
-    }
+/* Основной текст */
+.slide p {
+  font-size: 20px;
+  line-height: 1.6;
+  max-width: 920px;
+  margin-bottom: 18px;
+  color: #d1d5db;
+}
 
-    #cover p a {
-      color: inherit;
-      text-decoration: underline;
-    }
+/* Акцентный следующий шаг */
+.slide p.next {
+  color: #f9fafb;
+  font-weight: 500;
+}
 
-    /* ===============================
-       URL scheme
-    =============================== */
-    .url {
-      position: absolute;
-      left: 50%;
-      top: 42%;
-      transform: translateX(-50%);
-      font-size: 28px;
-      white-space: nowrap;
-    }
+/* Списки */
+.slide ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 28px 0;
+  max-width: 900px;
+}
 
-    .url-part {
-      position: relative;
-      display: inline-block;
-    }
+.slide ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 14px;
+  font-size: 19px;
+  line-height: 1.5;
+  color: #e5e7eb;
+}
 
-    .url-part::after {
-      content: attr(data-index);
-      position: absolute;
-      top: 1.6em;
-      left: 5%;
-      width: 90%;
-      border-bottom: 2px solid currentColor;
-      border-left: 2px solid currentColor;
-      border-right: 2px solid currentColor;
-      border-bottom-left-radius: 16px;
-      border-bottom-right-radius: 16px;
-      text-align: center;
-      font-size: 14px;
-    }
+/* Маркер */
+.slide ul li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #60a5fa; /* инженерный синий */
+  font-weight: 600;
+}
 
-    .http { color: rgb(33, 84, 192); }
-    .www { color: rgb(33, 192, 67); }
-    .domain-2 { color: rgb(192, 189, 33); }
-    .domain-1 { color: rgb(207, 39, 33); }
+/* Выделения */
+.slide strong {
+  color: #ffffff;
+  font-weight: 600;
+}
 
-    .url-legend {
-      margin-top: 120px;
-    }
+/* IP-примеры как “код” */
+.slide strong code,
+.slide strong {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
 
-    /* ===============================
-       Misc
-    =============================== */
-    .copyright {
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
-      font-size: 12px;
-      opacity: 0.7;
-    }
+/* Финальные абзацы — архитектурный акцент */
+.slide p.next:last-of-type {
+  margin-top: 32px;
+  font-size: 21px;
+  font-weight: 500;
+  color: #ffffff;
+}
   </style>
 </head>
 <body class="shower list">
 
 <header class="caption">
   <h1>Как работает Интернет</h1>
-  <p>Понимание взаимодействия для разработчиков</p>
+  <p>Понимание взаимодействия с интернетом для разработчиков</p>
 </header>
 
 <section class="slide" id="cover">
   <h2>Как работает Интернет</h2>
   <p>
-    Понимание взаимодействия для разработчиков<br>
+    Понимание взаимодействия с интернетом для разработчиков<br>
     <small>
       <a href="./internet.html" target="_blank" rel="noopener">
         Главная страница
@@ -160,7 +156,7 @@
   <h2>Типы сетей</h2>
 
   <ul>
-    <li><strong>LAN</strong> — локальная сеть (дом, офис)</li>
+    <li><strong>LAN</strong> — локальная сеть (квартира, дом, офис)</li>
     <li class="next">
       <strong>WAN</strong> — объединение сетей на больших расстояниях.
     </li>
@@ -170,8 +166,7 @@
   </ul>
 
   <p class="next">
-    Интернет представляет собой крупнейшую WAN-сеть,
-    использующую кабельные, радиоканальные и спутниковые соединения.
+    Интернет представляет собой крупнейшую WAN-сеть.
   </p>
 </section>
 
@@ -200,7 +195,7 @@
   <ul>
     <li>Назначение сетевого адреса</li>
     <li class="next">Маршрутизация запросов.</li>
-    <li class="next">Передача ответов от удалённых серверо.в</li>
+    <li class="next">Передача ответов от удалённых серверов.</li>
   </ul>
 </section>
 
@@ -248,11 +243,11 @@
     обмена данными между системами.
   </p>
 
-  <h3>Пример: транспорт и прикладной уровень</h3>
+  <h3>Транспорт и прикладной уровень:</h3>
 
   <ul>
     <li>
-      <strong>TCP</strong> — обеспечивает надёжную доставку данных,
+      <strong>TCP</strong> — обеспечивает доставку данных,
       контроль порядка и целостности.
     </li>
 
@@ -261,10 +256,6 @@
       ответов и доступные операции.
     </li>
   </ul>
-
-  <pre class="next"><code>
-Соединение → Передача → Подтверждение
-  </code></pre>
 
   <p class="next">
     Один уровень отвечает за доставку,
@@ -283,35 +274,19 @@
 
 <section class="slide">
   <h2>HTTP</h2>
-
   <p>
-    HTTP основан на модели обмена:
+    Основан на модели обмена запрос–ответ
+    между клиентом и сервером.
   </p>
-
-  <ul>
-    <li>Запрос</li>
-    <li>Ответ</li>
-  </ul>
-
-  <pre class="next"><code>
-Запрос:
-GET /users/123 HTTP/1.1
+  <pre class="next"><code>   
+Запрос: GET /users/v1 
 Host: api.example.com
-
-Ответ:
-HTTP/1.1 200 OK
+Ответ: HTTP/1.1 200 OK
 Content-Type: application/json
-
 {
-  "id": 123,
   "name": "Alex"
 }
   </code></pre>
-
-  <p class="next">
-    Клиент инициирует запрос,
-    сервер возвращает результат обработки.
-  </p>
 </section>
 
 
@@ -343,34 +318,66 @@ Content-Type: application/json
 <!-- 5. АДРЕСАЦИЯ -->
 
 <section class="slide">
-  <h2>IP-адрес</h2>
+  <h2>IP-адрес — Internet Protocol Address</h2>
+
   <p>
-    IP-адрес — уникальный идентификатор устройства в сети.
+    IP-адрес — это логический сетевой идентификатор узла,
+    используемый протоколом IP для маршрутизации пакетов
+    между сетями.
   </p>
+
+  <p class="next">
+    В отличие от MAC-адреса, IP не привязан жёстко к устройству —
+    он может меняться в зависимости от сети, провайдера
+    и схемы адресации.
+  </p>
+
+   <p class="next">
+    IP-адрес является ключевым элементом сетевой модели:
+    на нём основаны маршрутизация, балансировка нагрузки,
+    геолокация, firewall-правила и сетевые политики безопасности.
+  </p>
+  <ul class="next">
+    <li>
+      <strong>Публичные IP</strong> — доступны из глобальной сети.
+    </li>
+    <li>
+      <strong>Приватные IP</strong> — используются внутри локальных сетей
+      (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16).
+    </li>
+  </ul>
+</section>
+</section>
+<section class="slide">
+  <h2>DNS — Domain Name System</h2>
+
   <p>
-    Пример: <strong>172.217.18.100</strong>
+    DNS — это иерархическая, распределённая система имен,
+    предназначенная для преобразования человекочитаемых доменных имён
+    в сетевые адреса (IP) и связанные с ними параметры.
   </p>
+
+  <p class="next">
+    С точки зрения сетевой архитектуры DNS — это критически важный
+    уровень абстракции, который отделяет логические имена сервисов
+    от их физических сетевых расположений.
+  </p>
+
+  <ul class="next">
+    <li>
+      Работает по клиент–серверной модели с кэшированием на каждом уровне
+      (браузера и системы).
+    </li>
+    <li>
+      Использует иерархию: <strong>root → TLD (.com, .org) → authoritative DNS</strong>.
+    </li>
+    <li>
+      Основной транспорт — <strong>UDP/53</strong>, с переходом на TCP для
+      крупных ответов и zone transfer.
+    </li>
+  </ul>
 </section>
 
-<section class="slide">
-  <h2>Доменные имена</h2>
-  <p>
-    Числовые адреса неудобны для использования человеком.
-  </p>
-  <p class="next">
-    Доменные имена служат удобным отображением сетевых адресов.
-  </p>
-</section>
-
-<section class="slide">
-  <h2>DNS</h2>
-  <p>
-    DNS преобразует доменное имя в сетевой адрес.
-  </p>
-  <p class="next">
-    Это механизм сопоставления имён и адресов.
-  </p>
-</section>
 
 <!-- 6. ВЕБ -->
 
@@ -393,23 +400,18 @@ Content-Type: application/json
     <li>Свойства — механизм передачи данных</li>
     <li>Хуки — управление жизненным циклом</li>
   </ul>
-
-  <p class="next">
-    Интерфейс является функцией текущего состояния.
-  </p>
 </section>
 
 <section class="slide">
   <h2>Веб-страница в Next</h2>
 
-  <p>
-    Next дополняет React
-    механизмами серверной генерации страниц.
-  </p>
+  <p class="next">
+  React описывает модель интерфейса (что должно быть) как модель.
+  Next определяет стратегия исполнения (где, когда и как формируется) на этапе его рендеринга и исполнения в браузере.
+</p>
 
   <p class="next">
-    Формирование интерфейса может происходить
-    на сервере, заранее.
+    Формирование интерфейса:
   </p>
 
   <ul class="next">
@@ -419,20 +421,39 @@ Content-Type: application/json
     <li>Оптимизированная загрузка данных</li>
   </ul>
 
- <p class="next">
-  React описывает модель интерфейса (что должно быть) как модель,
-  Next определяет стратегия исполнения (где, когда и как формируется) на этапе его рендеринга и исполнения в браузере.
-</p>
-
 </section>
 
 <section class="slide">
   <h2>Современный веб</h2>
 
+  <p>
+    Современный веб — это слои систем,
+    построенных поверх протоколов,
+    с чётким разделением ответственности
+    и ориентацией на масштабируемость.
+  </p>
+
   <ul>
-    <li>Разделение логики, представления и данных</li>
-    <li class="next">Асинхронное взаимодействие с сетью</li>
-    <li class="next">Гибридные подходы к рендерингу</li>
+    <li>
+      <strong>Разделение логики, представления и данных</strong><br>
+      Архитектуры SPA, MPA и SSR отделяют бизнес-логику,
+      UI-компоненты и источники данных, позволяя
+      независимо развивать фронтенд и бэкенд.
+    </li>
+
+    <li class="next">
+      <strong>Асинхронное взаимодействие с сетью</strong><br>
+      Данные загружаются по требованию через HTTP API
+      (REST, GraphQL), с управлением состоянием,
+      кэшированием, ретраями и обработкой ошибок.
+    </li>
+
+    <li class="next">
+      <strong>Гибридные подходы к рендерингу</strong><br>
+      Используются комбинации CSR, SSR, SSG и ISR,
+      что позволяет балансировать между
+      производительностью, SEO и сложностью инфраструктуры.
+    </li>
   </ul>
 </section>
 
