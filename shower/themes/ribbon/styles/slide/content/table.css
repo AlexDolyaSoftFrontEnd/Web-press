@@ -1,0 +1,72 @@
+/* ==================================================
+   Table
+================================================== */
+.slide table {
+	--table-gutter: 100px;
+	--table-cell-padding-x: 96px;
+
+	margin: 0 0 1em;
+	margin-left: calc(var(--table-gutter) * -1);
+
+	width: calc(100% + var(--table-gutter) * 2);
+
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ==================================================
+   Cells
+================================================== */
+.slide th,
+.slide td {
+	padding: 0;
+	vertical-align: top;
+}
+
+/* Head */
+.slide th {
+	text-align: left;
+	font-weight: 700;
+}
+
+/* Horizontal paddings */
+.slide th:first-child,
+.slide td:first-child {
+	padding-left: var(--table-cell-padding-x);
+}
+
+.slide th:last-child,
+.slide td:last-child {
+	padding-right: var(--table-cell-padding-x);
+}
+
+/* ==================================================
+   Row separators
+================================================== */
+.slide tr:not(:last-of-type) > * {
+	background-image: linear-gradient(
+		to top,
+		var(--color-line) 0.06em,
+		transparent 0.06em
+	);
+	background-repeat: repeat-x;
+	background-position: 0 100%;
+}
+
+/* ==================================================
+   Striped tables
+================================================== */
+.slide table.striped tr:nth-child(even) {
+	background-color: var(--color-fill);
+}
+
+.slide table.striped tr > * {
+	background-image: none;
+}
+
+/* ==================================================
+   Responsive / safety
+================================================== */
+.slide {
+	overflow-x: auto;
+}

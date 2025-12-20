@@ -1,0 +1,46 @@
+/* ==================================================
+   Quote
+================================================== */
+.slide blockquote {
+	position: relative;
+	margin: 0;
+
+	font-style: italic;
+	font-size: 1.2em;
+	line-height: 1.6;
+
+	color: inherit;
+}
+
+/* Decorative quote mark */
+.slide blockquote::before {
+	content: "“";
+
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	transform: translate(-0.45em, -0.15em);
+
+	font-size: 8em;
+	line-height: 1;
+
+	color: #ccc;
+	opacity: 0.8;
+
+	pointer-events: none;
+	user-select: none;
+}
+
+/* ==================================================
+   Author / Caption
+================================================== */
+.slide blockquote + figcaption {
+	margin: -0.75em 0 1em;
+
+	font-style: italic;
+	font-weight: 600;
+	font-size: 0.95em;
+
+	color: var(--color-grey);
+}

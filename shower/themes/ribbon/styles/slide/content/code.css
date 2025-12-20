@@ -1,0 +1,106 @@
+/* ==================================================
+   Code Block
+================================================== */
+.slide pre {
+	margin: 0 0 1em;
+	position: relative;
+	counter-reset: code;
+	white-space: normal;
+	overflow-x: auto;
+}
+
+/* ==================================================
+   Inner Code
+================================================== */
+.slide pre code {
+	--code-gutter: 100px;
+
+	display: block;
+	position: relative;
+
+	margin-left: calc(var(--code-gutter) * -1);
+	padding-left: var(--code-gutter);
+	width: calc(100% + var(--code-gutter) * 2);
+
+	background: none;
+	border-radius: 0;
+
+	line-height: 2;
+	white-space: pre;
+	tab-size: 4;
+}
+
+/* ==================================================
+   Line Numbers
+================================================== */
+.slide pre code:not(:only-child)::before {
+	position: absolute;
+	left: calc(var(--code-gutter) * -1 + 1em);
+	top: 0;
+
+	counter-increment: code;
+	content: counter(code, decimal-leading-zero) ".";
+
+	color: var(--color-grey);
+	opacity: 0.75;
+
+	font-variant-numeric: tabular-nums;
+	pointer-events: none;
+}
+
+/* ==================================================
+   Marked Text
+================================================== */
+.slide pre mark {
+	position: relative;
+	z-index: 1;
+	margin: 0 -0.25em;
+	padding: 0 0.25em;
+
+	background: transparent;
+	border-radius: 4px;
+}
+
+/* Important highlight */
+.slide pre mark.important {
+	background: var(--color-red);
+	color: #fff;
+}
+
+/* ==================================================
+   Comments
+================================================== */
+.slide pre .comment {
+	color: #999;
+	font-style: italic;
+}
+
+/* ==================================================
+   Marked Line
+================================================== */
+.slide pre code.mark:not(:only-child) {
+	background: var(--color-fill);
+}
+
+/* ==================================================
+   Step Highlight (Next line)
+================================================== */
+.slide pre code.mark.next:not(:only-child) {
+	visibility: visible;
+	background: none;
+}
+
+.slide pre code.mark.next.active:not(:only-child) {
+	background: var(--color-fill);
+}
+
+/* ==================================================
+   Full Mode (Shower)
+================================================== */
+.shower.full .slide pre code.mark.next:not(:only-child) {
+	background: none;
+}
+
+.shower.full .slide pre code.mark.next.active:not(:only-child) {
+	background: var(--color-fill);
+}

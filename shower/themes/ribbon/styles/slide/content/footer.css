@@ -1,0 +1,50 @@
+/* ==================================================
+   Slide Footer
+================================================== */
+.slide > footer {
+	--footer-padding-x: 100px;
+	--footer-padding-top: 50px;
+	--footer-padding-bottom: 25px;
+
+	position: absolute;
+	inset: auto 0 0 0;
+	z-index: 1;
+
+	padding: var(--footer-padding-top)
+		var(--footer-padding-x)
+		var(--footer-padding-bottom);
+
+	background: var(--color-yellow);
+
+	transform: translateY(0);
+	will-change: transform;
+	transition: transform 0.3s ease;
+}
+
+/* ==================================================
+   List mode (preview)
+================================================== */
+.shower.list .slide > footer {
+	transform: translateY(100%);
+}
+
+.shower.list .slide.active > footer,
+.shower.list .slide:hover > footer {
+	transform: translateY(0);
+}
+
+/* ==================================================
+   Full mode
+================================================== */
+.shower.full .slide > footer {
+	display: none;
+}
+
+/* ==================================================
+   Reduced motion
+================================================== */
+@media (prefers-reduced-motion: reduce) {
+	.slide > footer {
+		transition: none;
+	}
+}

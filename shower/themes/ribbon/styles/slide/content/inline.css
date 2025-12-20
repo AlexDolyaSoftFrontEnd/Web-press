@@ -1,0 +1,90 @@
+/* ==================================================
+   Inline Elements
+================================================== */
+.slide {
+	--inline-radius: 0.25em;
+	--inline-padding-y: 0.1em;
+	--inline-padding-x: 0.3em;
+}
+
+/* ==================================================
+   Links
+================================================== */
+.slide a {
+	color: var(--color-blue);
+	text-decoration: none;
+
+	background-image: linear-gradient(
+		to top,
+		currentColor 0.09em,
+		transparent 0.09em
+	);
+	background-repeat: repeat-x;
+	background-position: 0 100%;
+}
+
+/* Hover / focus */
+.slide a:hover,
+.slide a:focus-visible {
+	background-image: linear-gradient(
+		to top,
+		currentColor 0.15em,
+		transparent 0.15em
+	);
+}
+
+/* ==================================================
+   Inline code & UI tokens
+================================================== */
+.slide code,
+.slide kbd,
+.slide samp,
+.slide mark {
+	padding: var(--inline-padding-y) var(--inline-padding-x);
+	border-radius: var(--inline-radius);
+}
+
+/* Monospace */
+.slide code,
+.slide kbd,
+.slide samp {
+	background: var(--color-fill);
+	line-height: 1.2;
+	font-family: 'PT Mono', ui-monospace, SFMono-Regular, monospace;
+	font-size: 0.95em;
+}
+
+/* Highlight */
+.slide mark {
+	background: var(--color-yellow);
+	color: inherit;
+}
+
+/* ==================================================
+   Sub / Sup
+================================================== */
+.slide sub,
+.slide sup {
+	position: relative;
+	vertical-align: baseline;
+	font-size: 75%;
+	line-height: 0;
+}
+
+.slide sub {
+	bottom: -0.25em;
+}
+
+.slide sup {
+	top: -0.5em;
+}
+
+/* ==================================================
+   Reduced motion / print safety
+================================================== */
+@media print {
+	.slide a {
+		background-image: none;
+		text-decoration: underline;
+	}
+}

@@ -1,0 +1,55 @@
+/* ==================================================
+   Slide Typography
+================================================== */
+.slide {
+	--slide-title-size: clamp(32px, 6vw, 50px);
+	--slide-text-size: 18px;
+	--slide-text-muted: var(--color-grey);
+}
+
+/* ==================================================
+   Headings
+================================================== */
+.slide h2 {
+	margin: 0 0 2rem;
+	color: var(--slide-text-muted);
+
+	font-family: 'PT Sans Narrow', system-ui, sans-serif;
+	font-weight: 700;
+	font-size: var(--slide-title-size);
+	line-height: 1.1;
+	letter-spacing: 0.02em;
+
+	text-wrap: balance;
+}
+
+/* ==================================================
+   Paragraphs
+================================================== */
+.slide p {
+	margin: 0 0 1em;
+	font-size: var(--slide-text-size);
+	line-height: 1.6;
+}
+
+.slide p.note {
+	color: var(--slide-text-muted);
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+/* ==================================================
+   Figures
+================================================== */
+.slide figure {
+	margin: 0;
+	max-width: 100%;
+}
+
+/* Optional caption support */
+.slide figcaption {
+	margin-top: 0.5em;
+	font-size: 0.85em;
+	color: var(--slide-text-muted);
+}
+

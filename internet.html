@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Как работает Интернет</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Shower -->
+  <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+
+  <style>
+    /* ===============================
+       Base
+    =============================== */
+    .shower {
+      --slide-ratio: calc(16 / 9);
+    }
+
+    .slide {
+      background-color: #f6f0e6;
+    }
+
+    /* ===============================
+       Cover
+    =============================== */
+    #cover h2 {
+      margin-top: 30px;
+      color: #333;
+      text-align: center;
+      font-size: 70px;
+      line-height: 1.1;
+    }
+
+    #cover p {
+      margin-top: 10px;
+      text-align: center;
+      color: #333;
+      font-style: italic;
+      font-size: 20px;
+    }
+
+    #cover p a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    /* ===============================
+       URL scheme
+    =============================== */
+    .url {
+      position: absolute;
+      left: 50%;
+      top: 42%;
+      transform: translateX(-50%);
+      font-size: 28px;
+      white-space: nowrap;
+    }
+
+    .url-part {
+      position: relative;
+      display: inline-block;
+    }
+
+    .url-part::after {
+      content: attr(data-index);
+      position: absolute;
+      top: 1.6em;
+      left: 5%;
+      width: 90%;
+      border-bottom: 2px solid currentColor;
+      border-left: 2px solid currentColor;
+      border-right: 2px solid currentColor;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .http { color: rgb(33, 84, 192); }
+    .www { color: rgb(33, 192, 67); }
+    .domain-2 { color: rgb(192, 189, 33); }
+    .domain-1 { color: rgb(207, 39, 33); }
+
+    .url-legend {
+      margin-top: 120px;
+    }
+
+    /* ===============================
+       Misc
+    =============================== */
+    .copyright {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      font-size: 12px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body class="shower list">
+
+<header class="caption">
+  <h1>Как работает Интернет</h1>
+  <p>Подробное объяснение для разработчика</p>
+</header>
+
+<section class="slide" id="cover">
+  <h2>Как работает Интернет</h2>
+  <p>
+    Понимание сети для уверенной веб-разработки<br>
+    <small>
+      <a href="https://github.com/AlexDolyaSoftFrontEnd" target="_blank" rel="noopener">
+        Alex Dolya
+      </a>
+    </small>
+  </p>
+</section>
+
+<!-- 1. ОСНОВЫ -->
+
+<section class="slide">
+  <h2>Что такое Интернет</h2>
+  <p>
+    Интернет — это глобальная сеть,
+    которая соединяет миллиарды устройств
+    и позволяет им обмениваться данными.
+  </p>
+  <p class="next">
+    Это не «облако», а физическая инфраструктура + правила общения.
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Из чего состоит Интернет</h2>
+  <ul>
+    <li>Устройства (клиенты и серверы)</li>
+    <li class="next">Каналы передачи данных</li>
+    <li class="next">Протоколы (правила общения)</li>
+    <li class="next">Программное обеспечение</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Компьютерная сеть</h2>
+  <p>
+    Сеть — это минимум два устройства,
+    которые могут обмениваться данными.
+  </p>
+  <ul class="next">
+    <li>по кабелю</li>
+    <li>по Wi-Fi</li>
+    <li>через мобильную сеть</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Типы сетей</h2>
+  <ul>
+    <li><strong>LAN</strong> — дом, офис, коворкинг</li>
+    <li class="next"><strong>WAN</strong> — соединение сетей между городами и странами</li>
+  </ul>
+  <p class="next">
+    Интернет — это самая большая WAN в мире
+  </p>
+</section>
+
+<!-- 2. ПРОВАЙДЕРЫ -->
+
+<section class="slide">
+  <h2>Интернет-провайдер</h2>
+  <p>
+    Провайдер — это компания,
+    которая подключает ваше устройство к сети.
+  </p>
+  <p class="next">
+    Браузер не «идёт в Интернет» напрямую —
+    он идёт через провайдера.
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Что делает провайдер</h2>
+  <ul>
+    <li>Назначает IP-адрес</li>
+    <li class="next">Передаёт ваши запросы дальше</li>
+    <li class="next">Получает ответы от серверов</li>
+  </ul>
+</section>
+
+<!-- 3. КЛИЕНТ / СЕРВЕР -->
+
+<section class="slide">
+  <h2>Клиент и сервер</h2>
+  <p>
+    <strong>Клиент</strong> — браузер или приложение
+  </p>
+  <p>
+    <strong>Сервер</strong> — компьютер, который обрабатывает запросы
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Важное правило</h2>
+  <p>
+    Сервер никогда не инициирует запрос первым
+  </p>
+  <p class="next">
+    Всегда сначала клиент
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Как загружается сайт (шаги)</h2>
+  <ol>
+    <li>Пользователь вводит адрес сайта</li>
+    <li class="next">Браузер запрашивает IP через DNS</li>
+    <li class="next">Отправляется HTTP-запрос</li>
+    <li class="next">Сервер возвращает HTML</li>
+    <li class="next">Браузер рендерит страницу</li>
+  </ol>
+</section>
+
+<!-- 4. ПРОТОКОЛЫ -->
+
+<section class="slide">
+  <h2>Что такое протокол</h2>
+  <p>
+    Протокол — это набор правил,
+    по которым устройства общаются между собой.
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Основные протоколы</h2>
+  <ul>
+    <li>HTTP / HTTPS — веб</li>
+    <li class="next">SMTP / IMAP — почта</li>
+    <li class="next">FTP / SFTP — файлы</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>HTTP простыми словами</h2>
+  <p>
+    HTTP — это диалог:
+  </p>
+  <ul class="next">
+    <li>Запрос (Request)</li>
+    <li>Ответ (Response)</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>HTTPS</h2>
+  <p>
+    HTTPS = HTTP + шифрование
+  </p>
+  <p class="next">
+    Защищает данные пользователя
+  </p>
+</section>
+
+<!-- 5. АДРЕСАЦИЯ -->
+
+<section class="slide">
+  <h2>IP-адрес</h2>
+  <p>
+    IP — уникальный адрес устройства в сети
+  </p>
+  <p>
+    Пример: <strong>172.217.18.100</strong>
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Зачем нужны домены</h2>
+  <p>
+    IP неудобны для людей
+  </p>
+  <p class="next">
+    Домены делают адреса понятными
+  </p>
+</section>
+
+<section class="slide">
+  <h2>URL</h2>
+  <div class="url">
+    <span class="url-part">https</span>://
+    <span class="url-part">example</span>.
+    <span class="url-part">com</span>
+  </div>
+
+  <ul class="next">
+    <li>Протокол</li>
+    <li>Имя сайта</li>
+    <li>Доменная зона</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>DNS</h2>
+  <p>
+    DNS переводит доменное имя в IP-адрес
+  </p>
+  <p class="next">
+    Это «телефонная книга» Интернета
+  </p>
+</section>
+
+<!-- 6. ВЕБ -->
+
+<section class="slide">
+  <h2>Что такое веб-страница</h2>
+  <p>
+    Это документ, который браузер получает с сервера
+  </p>
+</section>
+
+<section class="slide">
+  <h2>HTML</h2>
+  <p>
+    HTML описывает структуру страницы
+  </p>
+  <p class="next">
+    Это фундамент фронтенда
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Современный веб</h2>
+  <ul>
+    <li>JavaScript-логика</li>
+    <li class="next">API-запросы</li>
+    <li class="next">SPA / SSR</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Почему это важно разработчику</h2>
+  <ul>
+    <li>Проще понимать Network tab</li>
+    <li class="next">Быстрее искать баги</li>
+    <li class="next">Лучше работать с backend</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Итог</h2>
+  <p>
+    Понимание работы Интернета —
+    ключевой шаг от Junior к Senior
+  </p>
+</section>
+
+<footer class="badge">
+  <a href="https://github.com/AlexDolyaSoftFrontEnd">Made with Shower</a>
+</footer>
+
+<div class="progress"></div>
+
+<script src="shower/shower.min.js"></script>
+<script src="js/nav.js"></script>
+
+</body>
+</html>

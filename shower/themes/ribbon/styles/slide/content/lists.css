@@ -1,0 +1,89 @@
+/* ==================================================
+   Lists
+================================================== */
+.slide {
+	--list-marker-width: 3em;
+	--list-marker-gap: 0.5em;
+	--list-marker-color: var(--color-grey);
+}
+
+/* ==================================================
+   Base list reset
+================================================== */
+.slide ol,
+.slide ul {
+	margin: 0 0 1em;
+	padding-left: 0;
+	list-style: none;
+	counter-reset: list;
+}
+
+/* ==================================================
+   List item
+================================================== */
+.slide li {
+	position: relative;
+}
+
+/* ==================================================
+   Marker
+================================================== */
+.slide li::before {
+	position: absolute;
+	left: 0;
+
+	width: var(--list-marker-width);
+	margin-right: var(--list-marker-gap);
+
+	color: var(--list-marker-color);
+	opacity: 0.75;
+	text-align: right;
+
+	transform: translateX(
+		calc(-100% - var(--list-marker-gap))
+	);
+
+	font-variant-numeric: tabular-nums;
+	pointer-events: none;
+}
+
+/* ==================================================
+   Nested lists
+================================================== */
+.slide li ol,
+.slide li ul {
+	margin: 0;
+	margin-left: 2em;
+	counter-reset: list;
+}
+
+/* ==================================================
+   Ordered list markers
+================================================== */
+.slide ol > li::before {
+	counter-increment: list;
+	content: counter(list) ".";
+}
+
+/* ==================================================
+   Unordered list markers
+================================================== */
+.slide ul > li::before {
+	content: "•";
+}
+
+/* Dash for Russian typography */
+.slide ul > li:lang(ru)::before {
+	content: "—";
+}
+
+/* ==================================================
+   Custom markers via value=""
+================================================== */
+.slide ol > li[value]::before {
+	content: attr(value) ".";
+}
+
+.slide ul > li[value]::before {
+	content: attr(value);
+}
