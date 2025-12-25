@@ -1,14 +1,103 @@
-.get-data {
-	display: block;
-	width: 300px;
-	height: 150px;
-	background-color: rgb(224, 129, 19);
-	color: #fff;
+/* ===============================
+   Base variables
+=============================== */
+:root {
+  --color-border: #9ca3af;
+  --color-text: #ffffff;
+
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
+/* ===============================
+   Button / block
+=============================== */
+.get-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 320px;
+  min-height: 140px;
+
+  padding: 16px;
+
+  background-color: var(--color-primary);
+  color: var(--color-text);
+
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-align: center;
+
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.get-data:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.get-data:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ===============================
+   Area block
+=============================== */
 .area {
-	display: block;
-	width: 50%;
-	min-height: 500px;
-	border: 3px solid grey;
+  width: 100%;
+  max-width: 960px;
+  min-height: 400px;
+
+  margin: 24px auto;
+  padding: 24px;
+
+  border: 3px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  background-color: #ffffff;
+
+  box-sizing: border-box;
+}
+
+/* ===============================
+   Responsive
+=============================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .area {
+    max-width: 90%;
+    min-height: 360px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .get-data {
+    max-width: 100%;
+    min-height: 120px;
+    font-size: 1rem;
+  }
+
+  .area {
+    min-height: 300px;
+    padding: 16px;
+    border-width: 2px;
+  }
 }

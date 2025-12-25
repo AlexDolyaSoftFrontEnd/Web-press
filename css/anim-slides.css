@@ -2,16 +2,20 @@
    Root / Theme
 ===================================== */
 :root {
-  --color-bg: rgb(218, 158, 86);
+  --color-bg: rgb(56, 6, 255);
   --color-text: #ffffff;
 
-  --font-main: 'Open Sans', sans-serif;
+  --font-main: 'Open Sans', system-ui, sans-serif;
 
-  --heading-size: clamp(36px, 6vw, 60px);
+  --heading-size: clamp(32px, 7vw, 60px);
   --heading-weight: 900;
+
+  --text-size: clamp(16px, 4vw, 20px);
 
   --anim-ease: cubic-bezier(0.24, 0.18, 0.63, 0.22);
   --anim-duration: 1s;
+
+  --content-padding: clamp(16px, 5vw, 40px);
 }
 
 /* =====================================
@@ -21,18 +25,20 @@
   color: var(--color-text);
   font-family: var(--font-main);
   --slide-ratio: calc(16 / 9);
+  line-height: 1.5;
 }
 
 /* =====================================
    Slides
 ===================================== */
 .slide {
-  color: var(--color-text);
   background-color: var(--color-bg);
+  padding: var(--content-padding);
 }
 
 .slide > h2 {
-  color: var(--color-text);
+  font-size: clamp(24px, 6vw, 40px);
+  margin-bottom: 0.6em;
 }
 
 /* =====================================
@@ -40,18 +46,20 @@
 ===================================== */
 .slide > ul {
   list-style: none;
-  padding-left: 40px;
+  padding-left: 1.2em;
+  font-size: var(--text-size);
 }
 
 .slide li {
   position: relative;
+  margin-bottom: 0.5em;
 }
 
 .slide li::before {
   content: "•";
   position: absolute;
   left: -1em;
-  color: var(--color-text);
+  opacity: 0.9;
 }
 
 /* =====================================
@@ -60,8 +68,8 @@
 .site-heading {
   font-size: var(--heading-size);
   font-weight: var(--heading-weight);
-  line-height: 1;
-  margin-top: min(25vh, 200px);
+  line-height: 1.05;
+  margin: min(20vh, 160px) 0 0;
   text-transform: uppercase;
   text-align: center;
   cursor: pointer;
@@ -93,29 +101,18 @@
    Letter jump animation
 ===================================== */
 @keyframes letter-jump {
-  0% {
-    transform: translateY(0) scaleY(1);
-  }
-  25% {
-    transform: translateY(-70%) scaleY(1.25);
-  }
-  70% {
-    transform: translateY(0) scaleY(1);
-  }
-  85% {
-    transform-origin: 50% 80%;
-    transform: scaleY(0.6);
-  }
-  100% {
-    transform: scaleY(1);
-  }
+  0% { transform: translateY(0); }
+  30% { transform: translateY(-60%); }
+  70% { transform: translateY(0); }
+  100% { transform: translateY(0); }
 }
 
 /* =====================================
    Content blocks
 ===================================== */
 .theory-text {
-  margin: 50vh 0;
+  margin: min(30vh, 240px) 0;
+  font-size: var(--text-size);
 }
 
 .illustr {
@@ -124,31 +121,27 @@
 
 .copywrite {
   font-size: 12px;
-  opacity: 0.8;
+  opacity: 0.75;
 }
 
 /* =====================================
    Animated Box
 ===================================== */
 .ani-box {
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   background-color: #fff;
   margin-top: 2em;
-  will-change: transform, clip-path;
   animation: box-morph 2s ease-in-out infinite alternate;
 }
 
 @keyframes box-morph {
   0% {
-    transform: translateX(-100px);
+    transform: translateX(-60px);
     clip-path: circle(100%);
   }
-  50% {
-    clip-path: circle(50%);
-  }
   100% {
-    transform: translateX(100px) rotate(360deg);
+    transform: translateX(60px) rotate(360deg);
     clip-path: circle(50%);
   }
 }
@@ -170,8 +163,27 @@
    Google iframe / demo
 ===================================== */
 .google-it {
-  height: 400px;
-  margin-bottom: -4em;
+  width: 100%;
+  height: min(60vh, 400px);
+  border: none;
+  margin-bottom: 0;
+}
+
+/* =====================================
+   Mobile Adaptation
+===================================== */
+@media (max-width: 768px) {
+  .site-heading {
+    margin-top: 10vh;
+  }
+
+  .theory-text {
+    margin: 15vh 0;
+  }
+
+  .ani-box {
+    margin-inline: auto;
+  }
 }
 
 /* =====================================
